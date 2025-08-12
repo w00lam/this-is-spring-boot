@@ -3,17 +3,30 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybaits.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.MemberMapper">
+    <resultMap id="memberResult" type="com.example.demo.model.Member">
+        <result column="display_name" property="name"/>
+        <result column="primary_contact" property="email"/>
+        <result column="age" property="age"/>
+    </resultMap>
+
+    <select id="selectAll" resultMap="memberResult">
+        SELECT * FROM member
+    </select>
+
+    <select id="selectById" resultMap="memberResult">
+        SELECT * FROM member WHERE id=#{id}
+    </select>
 
     <select id="selectAll">
         SELECT * FROM member
     </select>
 
     <select id="selectById">
-        SELECT * FROM member WHERE id = #{id}
+        SELECT * FROM member WHERE id=#{id}
     </select>
 
     <select id="selectByEmail">
-        SELECT * FROM member WHERE email = #{email}
+        SELECT * FROM member WHERE email=#{email}
     </select>
 
     <select id="selectByNameLike">
