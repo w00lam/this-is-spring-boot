@@ -1,10 +1,9 @@
 package com.example.demo.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -27,4 +26,7 @@ public class Member {
     private Integer age;
     @Transient
     private String address;
+    @ToString.Exclude
+    @OneToMany(mappedBy = "member")
+    private List<Article> articles;
 }
