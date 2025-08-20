@@ -29,11 +29,11 @@ public class MemberController {
         return articleService.create(id, articleRequest);
     }
 
-    @GetMapping("/{id}/articles")
-    public void getArticle(@PathVariable("id") Long id,
-                           HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect("/api/articles?memberId=" + id);
-    }
+//    @GetMapping("/{id}/articles")
+//    public void getArticle(@PathVariable("id") Long id,
+//                           HttpServletResponse response) throws ServletException, IOException {
+//        response.sendRedirect("/api/articles?memberId=" + id);
+//    }
 
     @GetMapping("/{id}/articles")
     public void getArticle(@PathVariable("id") Long id,
@@ -47,8 +47,8 @@ public class MemberController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public MemberResponse post(@RequestBody MemberRequest memberRequest) {
-        return memberService.create(memberRequest);
+    public List<MemberResponse> postBatch(@RequestBody List<MemberRequest> memberRequests) {
+        return memberService.createBatch(memberRequests);
     }
 
     @GetMapping

@@ -5,6 +5,7 @@ import com.example.demo.dto.MemberResponse;
 import com.example.demo.exception.NotFoundException;
 import com.example.demo.model.Member;
 import com.example.demo.repository.MemberRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +15,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MemberService {
     private final MemberRepository memberRepository;
-
 
     public MemberResponse create(MemberRequest memberRequest) {
         Member member = Member.builder()
@@ -74,6 +74,12 @@ public class MemberService {
     public void deleteById(Long id) {
         Member member = memberRepository.findById(id).orElseThrow(NotFoundException::new);
         memberRepository.delete(member);
+    }
+
+    @Transactional(rollbackOn = {Exception.class})
+    public List<MemberResponse> createBatch(List<MemberRequest> memberRequests) {
+        // perform business logic that may throw an exception.
+        return memberRequests.stream().map(this::create).toList();
     }
 
     private MemberResponse mapToMemberResponse(Member member) {

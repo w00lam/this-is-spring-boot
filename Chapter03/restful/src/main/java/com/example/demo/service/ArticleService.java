@@ -43,6 +43,24 @@ public class ArticleService {
                 .toList();
     }
 
+    public ArticleResponse findById(Long id) {
+        Article article = articleRepository.findById(id).orElseThrow(NotFoundException::new);
+        return mapToArticleResponse(article);
+    }
+
+    public ArticleResponse update(Long id, ArticleRequest articleRequest) {
+        Article article = articleRepository.findById(id).orElseThrow(NotFoundException::new);
+        article.setTitle(articleRequest.getTitle());
+        article.setDescription(articleRequest.getDescription());
+        articleRepository.save(article);
+        return mapToArticleResponse(article);
+    }
+
+    public void delete(Long id) {
+        Article article = articleRepository.findById(id).orElseThrow(NotFoundException::new);
+        articleRepository.delete(article);
+    }
+
     private ArticleResponse mapToArticleResponse(Article article) {
         return ArticleResponse.builder()
                 .id(article.getId())
