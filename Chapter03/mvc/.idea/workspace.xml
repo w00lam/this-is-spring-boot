@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="df872083-e942-4bfa-868c-7349994317ff" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/DemoApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/ServletInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/MemberController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/Member.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/demo/DemoApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/src/main/java/com/example/demo/DemoApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/src/main/java/com/example/demo/config/FilterConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/src/main/java/com/example/demo/controller/ArticleController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/src/main/java/com/example/demo/controller/MemberController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/src/main/java/com/example/demo/dto/ArticleRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/src/main/java/com/example/demo/dto/ArticleResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/src/main/java/com/example/demo/dto/MemberRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/src/main/java/com/example/demo/dto/MemberResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/src/main/java/com/example/demo/exception/NotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/src/main/java/com/example/demo/filter/AccessKeyFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/src/main/java/com/example/demo/filter/LogFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/src/main/java/com/example/demo/model/Article.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/src/main/java/com/example/demo/model/Member.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/src/main/java/com/example/demo/repository/ArticleRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/src/main/java/com/example/demo/repository/MemberRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/src/main/java/com/example/demo/service/ArticleService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/src/main/java/com/example/demo/service/MemberService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/src/test/java/com/example/demo/DemoApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/src/test/java/com/example/demo/controller/MemberControllerTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/src/test/java/com/example/demo/repository/MemberRepositoryTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/src/test/java/com/example/demo/service/MemberServiceTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../restful/src/test/java/com/example/demo/service/MemberServiceUnitTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="demo" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="demo" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="demo" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;w00lam&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/w00lam/this-is-spring-boot&quot;,
+    &quot;accountId&quot;: &quot;1ba9a9dd-ccfd-4712-bc43-9133a3750cab&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="31e78kWIqa66sb0Sg2zJhGY9eO7" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Gradle.mvc [bootRun].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/wlam1/IdeaProjects/this-is-spring-boot/Chapter03/mvc",
+    "settings.editor.selected.configurable": "fileTemplates"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="mvc [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="bootRun" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.mvc [bootRun]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="df872083-e942-4bfa-868c-7349994317ff" name="변경" comment="" />
+      <created>1755872527452</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1755872527452</updated>
+    </task>
+    <servers />
+  </component>
+</project>
