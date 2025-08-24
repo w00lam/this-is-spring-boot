@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원 정보</title>
+</head>
+<body>
+<!--<li th:text="${member.name}">name</li>-->
+<!--<li th:text="${member.email}">phone</li>-->
+<!--<li th:text="${member.age}">address</li>-->
+
+<ul th:object="${member}">
+    <li th:text="*{name}">name</li>
+    <li th:text="*{email}">phone</li>
+    <li th:text="*{age}">address</li>
+</ul>
+</body>
+</html>

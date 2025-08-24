@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>숫자 유틸리티</title>
+</head>
+<body>
+<p>formatDecimal</p>
+<p th:text="${#numbers.formatDecimal(productPrice,1,2)}">
+    3.14
+</p>
+<p th:text="${#numbers.formatDecimal(productPrice,10,2)}">
+    3.14
+</p>
+<p>formatInteger</p>
+<p th:text="${#numbers.formatInteger(productCount,1,'COMMA')}">
+    100
+</p>
+<p th:text="${#numbers.formatInteger(productCount,10)}">
+    100
+</p>
+</body>
+</html>

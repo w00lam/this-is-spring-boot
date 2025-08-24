@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원 목록</title>
+</head>
+<body>
+<p>회원 목록</p>
+<table>
+    <tr th:each="member, iteration : ${members}"
+        th:style="${iteration.odd}?'background-color: lightgray;'">
+        <td th:text="${iteration.count}">iteration</td>
+        <td th:text="${member.name}">구덕팔</td>
+        <td th:text="${member.email}">Duck89@naver.com</td>
+        <td th:text="${member.age}">10</td>
+    </tr>
+</table>
+<th:block th:each="member : ${members}">
+    <p>
+        이름: <span th:text="${member.name}">구덕팔</span>
+        이메일: <span th:text="${member.email}">Duck89@naver.com</span>
+        나이: <span th:text="${member.age}">10</span>
+    </p>
+</th:block>
+</body>
+</html>
