@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>커먼</title>
+</head>
+<body>
+<div th:fragment="header (menu)">
+    <p style="background-color: black; color: white; padding: 12px;">
+        한빛미디어 | 강의 | 책 | 대관 | <span th:text="${menu}">이벤트</span> | 자료실
+    </p>
+</div>
+<div th:fragment="footer">
+    <p style="background-color: black; color: white; padding: 12px;">
+        Copyright 2025 Hanbit Media
+    </p>
+</div>
+</body>
+</html>

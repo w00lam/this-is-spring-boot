@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>프래그먼트</title>
+    <link th:href="@{/css/round-shadow-box.css}" rel="stylesheet"/>
+</head>
+<body>
+<div th:replace="~{ fragment/common :: header('프로모션') }"></div>
+<p><span class="round-shadow-box">한빛미디어에 오신 것을 환영합니다</span></p>
+<div th:replace="~{ fragment/common :: footer }"></div>
+<br><br>
+</body>
+</html>
