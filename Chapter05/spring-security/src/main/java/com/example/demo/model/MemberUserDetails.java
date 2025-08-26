@@ -21,8 +21,8 @@ public class MemberUserDetails implements UserDetails {
         this.username = member.getEmail();
         this.displayName = member.getName();
         this.password = member.getPassword();
-        this.memberId=member.getId();
-        this.authorities=authorities.stream()
+        this.memberId = member.getId();
+        this.authorities = authorities.stream()
                 .map(authority -> new SimpleGrantedAuthority(authority.getAuthority()))
                 .toList();
     }
