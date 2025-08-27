@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>로그인</h1>
+<div th:if="${param.error}">아이디와 패스워드가 잘못 되었습니다</div>
+<form th:action="@{/login}" method="post">
+    <div>
+        <input type="text" name="username" placeholder="아이디">
+    </div>
+    <div>
+        <input type="password" name="password" placeholder="패스워드">
+    </div>
+    <div>
+        자동 로그인 <input type="checkbox" name="remember-me"/>
+    </div>
+    <button type="submit">로그인</button>
+</form>
+</body>
+</html>

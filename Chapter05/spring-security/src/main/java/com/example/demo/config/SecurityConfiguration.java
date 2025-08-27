@@ -8,6 +8,8 @@ import com.example.demo.repository.MemberRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -22,8 +24,12 @@ import org.springframework.security.web.authentication.RememberMeServices;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import javax.sql.DataSource;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.springframework.security.config.Customizer.withDefaults;
@@ -52,7 +58,7 @@ public class SecurityConfiguration {
         return http.build();
     }
 
-    @Bean
+    //@Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http, RememberMeServices rememberMeServices) throws Exception {
         http.authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated())
                 .rememberMe(remember -> remember.rememberMeServices(rememberMeServices))
@@ -62,7 +68,7 @@ public class SecurityConfiguration {
         return http.build();
     }
 
-    @Bean
+    //@Bean
     public SecurityFilterChain securityFilterChainLoginLogout(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated())
                 .formLogin(login -> login
@@ -75,6 +81,39 @@ public class SecurityConfiguration {
                         .permitAll()); // permit all for logout success url
 
         return http.build();
+    }
+
+    //@Bean
+    public SecurityFilterChain securityFilterChainCsrf(HttpSecurity http) throws Exception {
+        http.csrf(csrf -> csrf.disable())
+                //.csrf(csrf->csrf.ignoringRequestMatchers("/api/*"))
+                .authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated())
+                .formLogin(withDefaults())
+                .logout(withDefaults());
+
+        return http.build();
+    }
+
+    //@Bean
+    public SecurityFilterChain securityFilterChainCors(CorsConfigurationSource corsConfigurationSource
+            , HttpSecurity http) throws Exception {
+        http.cors(cors -> cors.configurationSource(corsConfigurationSource))
+                .httpBasic(withDefaults());
+
+        return http.build();
+    }
+
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration conf = new CorsConfiguration();
+        conf.setAllowedOrigins(Arrays.asList("https://hanbit.co.kr", "https://campus.co.kr"));
+        conf.setAllowedMethods(Arrays.asList("GET", "POST"));
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+
+        source.registerCorsConfiguration("/**", conf);
+
+        return source;
     }
 
     //@Bean
@@ -142,4 +181,19 @@ public class SecurityConfiguration {
     RememberMeServices rememberMeServices(UserDetailsService userDetailsService, PersistentTokenRepository tokenRepository) {
         return new PersistentTokenBasedRememberMeServices("myRememberMeKey", userDetailsService, tokenRepository);
     }
+
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return new WebSecurityCustomizer() {
+            @Override
+            public void customize(WebSecurity web) {
+                web.ignoring().requestMatchers(
+                        "/h2-console/**",
+                        "/css/**",
+                        "/js/**",
+                        "/image/**");
+            }
+        };
+    }
+
 }
