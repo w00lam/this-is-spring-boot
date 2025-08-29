@@ -1,12 +1,15 @@
 package com.example.demo.service;
 
 import com.example.demo.dto.MemberDto;
+import com.example.demo.dto.MemberForm;
 import com.example.demo.model.Member;
 import com.example.demo.repository.ArticleRepository;
 import com.example.demo.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -17,6 +20,19 @@ public class MemberService {
 
     public MemberDto findById(Long id) {
         return memberRepository.findById(id).map(this::mapToMemberDto).orElseThrow();
+    }
+
+    public Optional<MemberDto> findByEmail(String email) {
+        return memberRepository.findByEmail(email).map(this::mapToMemberDto);
+    }
+
+    public MemberDto create(MemberForm memberForm) {
+        Member member = Member.builder()
+                .name(memberForm.getName())
+                .password(passwordEncoder.encode(memberForm.getPassword()))
+                .email(memberForm.getEmail()).build();
+        memberRepository.save(member);
+        return mapToMemberDto(member);
     }
 
     private MemberDto mapToMemberDto(Member member) {
