@@ -35,6 +35,17 @@ public class MemberService {
         return mapToMemberDto(member);
     }
 
+    public boolean checkPassword(Long id, String password) {
+        Member member = memberRepository.findById(id).orElseThrow();
+        return passwordEncoder.matches(password, member.getPassword());
+    }
+
+    public void updatePassword(Long id, String password) {
+        Member member = memberRepository.findById(id).orElseThrow();
+        member.setPassword(passwordEncoder.encode(password));
+        memberRepository.save(member);
+    }
+
     private MemberDto mapToMemberDto(Member member) {
         return MemberDto.builder()
                 .id(member.getId())

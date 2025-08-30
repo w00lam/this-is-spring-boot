@@ -20,13 +20,13 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/",
                                 "article/list",
-                                "article/content",
-                                "/h2-console/**")
+                                "article/content")
                         .permitAll()
                         .requestMatchers("/members/**")
                         .hasAuthority("ROLE_ADMIN")
                         .requestMatchers("/signup")
-                        .permitAll().anyRequest().authenticated())
+                        .permitAll()
+                        .anyRequest().authenticated())
                 .httpBasic(withDefaults())
                 .formLogin(form -> form
                         .loginPage("/login")
