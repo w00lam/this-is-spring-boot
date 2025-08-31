@@ -1,10 +1,10 @@
-INSERT INTO member(name, email, password) VALUES('구덕팔','Duck89@naver.com','$2a$12$uS8zx39IxS6tYo4UPku6w.hrGnlLJMRXWCd4HXQFN9RHy8HrIGuja');
+INSERT INTO member(name, email, password) VALUES('구덕팔','Duck89@naver.com','$2a$12$34n2GHTdh8ecPa/d.mAV.usG4u5nFQ86Tj6rPaZkjXVz5PoipvymS');
 
-INSERT INTO member(name, email, password) VALUES('팔덕구','Duck98@naver.com','$2a$12$uS8zx39IxS6tYo4UPku6w.hrGnlLJMRXWCd4HXQFN9RHy8HrIGuja');
+INSERT INTO member(name, email, password) VALUES('팔덕구','Duck98@naver.com','$2a$12$34n2GHTdh8ecPa/d.mAV.usG4u5nFQ86Tj6rPaZkjXVz5PoipvymS');
 
-INSERT INTO member(name, email, password) VALUES('김갑수','GapsooKim@naver.com','$2a$12$uS8zx39IxS6tYo4UPku6w.hrGnlLJMRXWCd4HXQFN9RHy8HrIGuja');
+INSERT INTO member(name, email, password) VALUES('김갑수','GapsooKim@naver.com','$2a$12$34n2GHTdh8ecPa/d.mAV.usG4u5nFQ86Tj6rPaZkjXVz5PoipvymS');
 
-INSERT INTO member(name, email, password) VALUES('팔갑수','GapsooPal@naver.com','$2a$12$uS8zx39IxS6tYo4UPku6w.hrGnlLJMRXWCd4HXQFN9RHy8HrIGuja');
+INSERT INTO member(name, email, password) VALUES('팔갑수','GapsooPal@naver.com','$2a$12$34n2GHTdh8ecPa/d.mAV.usG4u5nFQ86Tj6rPaZkjXVz5PoipvymS');
 
 INSERT INTO authority(authority, member_id) VALUES('ROLE_ADMIN', 2);
 

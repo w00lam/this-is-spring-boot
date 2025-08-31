@@ -3,6 +3,7 @@ package com.example.demo.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,11 +19,13 @@ public class SecurityConfiguration {
         http
                 .csrf(withDefaults())
                 .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers("/h2-console/**")
+                        .permitAll()
                         .requestMatchers("/",
                                 "article/list",
                                 "article/content")
                         .permitAll()
-                        .requestMatchers("/members/**")
+                        .requestMatchers("/member/**")
                         .hasAuthority("ROLE_ADMIN")
                         .requestMatchers("/signup")
                         .permitAll()
@@ -42,8 +45,12 @@ public class SecurityConfiguration {
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring()
-                .requestMatchers("/h2-console/**");
+        return new WebSecurityCustomizer() {
+            @Override
+            public void customize(WebSecurity web) {
+                web.ignoring().requestMatchers("/h2-console/**");
+            }
+        };
     }
 
     @Bean
