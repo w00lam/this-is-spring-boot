@@ -24,6 +24,6 @@ public class ArticleController {
     public String getArticleList(@PageableDefault(size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable, Model model) {
         Page<ArticleDto> page = articleService.findAll(pageable);
         model.addAttribute("page", page);
-        return "article-list";
+        return "article-list-pagination";
     }
 }
