@@ -5,6 +5,7 @@ import com.example.demo.dto.MemberForm;
 import com.example.demo.model.Member;
 import com.example.demo.repository.ArticleRepository;
 import com.example.demo.repository.MemberRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -69,6 +70,13 @@ public class MemberService {
         Member member = memberRepository.findById(id).orElseThrow();
         member.setPassword(passwordEncoder.encode(password));
         memberRepository.save(member);
+    }
+
+    @Transactional
+    public void deleteById(Long id) {
+        Member member = memberRepository.findById(id).orElseThrow();
+        articleRepository.deleteAllByMember(member);
+        memberRepository.delete(member);
     }
 
     private MemberDto mapToMemberDto(Member member) {
