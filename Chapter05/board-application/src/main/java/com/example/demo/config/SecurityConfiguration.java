@@ -22,8 +22,8 @@ public class SecurityConfiguration {
                         .requestMatchers("/h2-console/**")
                         .permitAll()
                         .requestMatchers("/",
-                                "article/list",
-                                "article/content")
+                                "/article/list",
+                                "/article/content")
                         .permitAll()
                         .requestMatchers("/member/**")
                         .hasAuthority("ROLE_ADMIN")

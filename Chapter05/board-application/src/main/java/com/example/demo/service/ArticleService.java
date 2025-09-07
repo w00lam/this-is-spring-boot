@@ -57,7 +57,6 @@ public class ArticleService {
                 .updated(article.getUpdated())
                 .memberId(article.getMember().getId())
                 .name(article.getMember().getName())
-                .email(article.getMember().getEmail())
-                .build();
+                .email(article.getMember().getEmail()).build();
     }
 }
