@@ -26,6 +26,7 @@ public class MemberService {
     }
 
     public Optional<MemberDto> findByEmail(String email) {
+        System.out.println("로그인 시도 email = " + email);
         return memberRepository.findByEmail(email).map(this::mapToMemberDto);
     }
 
