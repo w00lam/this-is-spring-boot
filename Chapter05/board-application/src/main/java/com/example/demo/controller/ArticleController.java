@@ -54,7 +54,7 @@ public class ArticleController {
             return "article-edit";
         }
         articleService.update(articleForm);
-        return "redirect:/article/content?Id=" + articleForm.getId();
+        return "redirect:/article/content?id=" + articleForm.getId();
     }
 
     @GetMapping("/list")

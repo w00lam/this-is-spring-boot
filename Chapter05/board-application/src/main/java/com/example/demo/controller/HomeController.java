@@ -60,7 +60,7 @@ public class HomeController {
 
     @GetMapping
     public String getHome() {
-        return "forward:/article/list";
+        return "forward:article/list";
     }
 
     @GetMapping("/login")

@@ -49,7 +49,7 @@ public class SecurityConfiguration {
                 "/h2-console/**",
                 "/css/**",
                 "/js/**",
-                "/images/**"
+                "/image/**"
         );
     }
 

@@ -18,7 +18,7 @@
         <!-- 브랜드 선택 시 디폴트로 게시글 화면 표시 -->
         <a class="navbar-brand" th:href="@{/article/list}">
             <img src="../static/image/spring.svg" th:src="@{/image/spring.svg}" width="30" height="30"
-                 class="d-inline-block align-text-top">스프링부트 게시판
+                 class="d-inline-block align-text-top"> 스프링부트 게시판
         </a>
         <!-- 로그인 상태에 따라 다른 메뉴 표시 -->
         <ul class="navbar-nav">
@@ -39,7 +39,7 @@
             <!-- 회원에게는 비밀번호 변경, 로그아웃 메뉴 표시 -->
             <li class="nav-item dropdown" sec:authorize="isAuthenticated()">
                 <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-                   sec:authenticated="principal.displayName">구덕팔</a>
+                   sec:authentication="principal.displayName">구덕팔</a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" th:href="@{/password}">비밀번호 변경</a></li>
                     <li><a class="dropdown-item" th:href="@{/logout}">로그아웃</a></li>

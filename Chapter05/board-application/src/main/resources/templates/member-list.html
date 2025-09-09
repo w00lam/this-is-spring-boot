@@ -32,7 +32,7 @@
         </tr>
         </tbody>
     </table>
-    <nav th:if="${!page.isEmpty()" }>
+    <nav th:if="${!page.isEmpty()}">
         <ul class="pagination"
             th:with="start=${T(java.lang.Math).floor(page.number / 5) * 5}, last=(${start + 4 < page.totalPages ? start + 4 : page.totalPages - 1})">
             <li class="page-item" th:classappend="${page.first} ? 'disabled'">
