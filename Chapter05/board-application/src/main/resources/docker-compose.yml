@@ -1,0 +1,35 @@
+name: demo
+services:
+  app:
+    image: board-application
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    environment:
+      PROFILES: docker
+      DB_HOSTNAME: db
+      DB_PORT: 3306
+      DB_NAME: mydb
+      DB_USERNAME: myuser
+      DB_PASSWORD: mypass
+  db:
+    image: mysql
+    restart: always
+    volumes:
+      - db-volume:/var/lib/mysql
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: yes
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypass
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8000:80
+    depends_on:
+      - db
+volumes:
+  db-volume:
