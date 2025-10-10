@@ -16,8 +16,13 @@ import org.springframework.ai.openai.OpenAiChatOptions;
 import org.springframework.ai.openai.api.OpenAiApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 @SpringBootTest
@@ -54,7 +59,7 @@ public class OpenAiChatModelTests {
         System.out.println(result);
     }
 
-    //@Test
+    @Test
     public void testChatGptPrompt() {
         List<Message> messages = List.of(
                 new SystemMessage("간략하게 답변해 주세요."),
@@ -102,8 +107,67 @@ public class OpenAiChatModelTests {
 
     @Test
     public void testChatModelImage() throws MalformedURLException {
+        Resource resource = new ClassPathResource("image/Disney_World_2.jpg");
+
         Message message = new UserMessage("사진 속의 풍경을 멋진 시로 써 주세요.");
         String result = chatModel.call(message);
         System.out.println(result);
+    }
+
+    @Test
+    public void testChatModelAudioInput() {
+        var resource = new ClassPathResource("audio/sample_audio.mp3");
+
+        var message = new UserMessage("이 오디오 파일의 내용에 대해 요약해 주세요");
+
+        ChatResponse response = chatModel.call(
+                new Prompt(List.of(message),
+                        OpenAiChatOptions.builder()
+                                .model(OpenAiApi.ChatModel.GPT_4_O_AUDIO_PREVIEW)
+                                .build())
+        );
+
+        System.out.println(response.getResult().getOutput().getText());
+    }
+
+    @Test
+    public void testChatModelAudioOutput() throws IOException {
+        String message = "스프링 부트에 대해 간단하게 설명해 주세요";
+        ChatResponse response = chatModel.call(new Prompt(message, OpenAiChatOptions.builder()
+                .temperature(0.5)
+                .model(OpenAiApi.ChatModel.GPT_4_O_AUDIO_PREVIEW)
+                .outputModalities(List.of("text", "audio"))
+                .outputAudio(new OpenAiApi.ChatCompletionRequest.AudioParameters(
+                        OpenAiApi.ChatCompletionRequest.AudioParameters.Voice.NOVA,
+                        OpenAiApi.ChatCompletionRequest.AudioParameters.AudioResponseFormat.MP3))
+                .build()));
+
+        String text = response.getResult().getOutput().getText();
+        System.out.println("result = " + text);
+
+        byte[] audio = response.getResult().getOutput().getMedia().getFirst().getDataAsByteArray();
+        Files.write(Paths.get("D:\\archive\\audio\\ai_chat_audio.mp3"), audio);
+    }
+
+    @Test
+    public void testChatModelAudioInputOutput() throws IOException {
+        var resource = new ClassPathResource("audio/sample_audio_ask.mp3");
+        var message = new UserMessage("질문에 친절하고 간략하게 답변해 주세요");
+
+        ChatResponse response = chatModel.call(new Prompt(message,
+                OpenAiChatOptions.builder()
+                        .temperature(0.5)
+                        .model(OpenAiApi.ChatModel.GPT_4_O_AUDIO_PREVIEW)
+                        .outputModalities(List.of("text", "audio"))
+                        .outputAudio(new OpenAiApi.ChatCompletionRequest.AudioParameters(
+                                OpenAiApi.ChatCompletionRequest.AudioParameters.Voice.NOVA,
+                                OpenAiApi.ChatCompletionRequest.AudioParameters.AudioResponseFormat.MP3))
+                        .build()));
+
+        String text = response.getResult().getOutput().getText(); // audio transcript
+        System.out.println("result = " + text);
+
+        byte[] audio = response.getResult().getOutput().getMedia().getFirst().getDataAsByteArray(); // audio data
+        Files.write(Paths.get("D:\\archive\\audio\\ai_chat_audio_answer.mp3"), audio);
     }
 }
