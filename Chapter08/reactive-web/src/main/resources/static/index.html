@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+async function sendMessage(){
+    const query = input.value.trim();
+    if (!query) return;
+
+    appendMessage(`You: ${query}\n`);
+    input.value = '';
+
+    const response = await fetch(`/chat?message=${encodeURICComponent(query)}`);
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+
+    while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        const chunk = decoder.decode(value, { stream: true });
+        appendMessage(chunk);
+    }
+
+    appendMessage('\n');
+}
+</body>
+</html>
